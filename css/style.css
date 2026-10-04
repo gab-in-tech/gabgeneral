@@ -1,0 +1,499 @@
+/*! HTML5 Boilerplate v9.0.1 | MIT License | https://html5boilerplate.com/ */
+
+/* main.css 3.0.0 | MIT License | https://github.com/h5bp/main.css#readme */
+/*
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html {
+  color: #222;
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/*
+ * Remove the gap between audio, canvas, iframes,
+ * images, videos and the bottom of their containers:
+ * https://github.com/h5bp/html5-boilerplate/issues/440
+ */
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+  resize: vertical;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Hide visually and from screen readers
+ */
+
+.hidden,
+[hidden] {
+  display: none !important;
+}
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+ */
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  /* 1 */
+}
+
+/*
+ * Extends the .visually-hidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.visually-hidden.focusable:active,
+.visually-hidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  white-space: inherit;
+  width: auto;
+}
+
+/*
+ * Hide visually and from screen readers, but maintain layout
+ */
+
+.invisible {
+  visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * The use of `table` rather than `block` is only necessary if using
+ * `::before` to contain the top-margins of child elements.
+ */
+
+.clearfix::before,
+.clearfix::after {
+  content: "";
+  display: table;
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid the additional HTTP request:
+   https://www.phpied.com/delay-loading-your-print-css/
+   ========================================================================== */
+
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: #fff !important;
+    color: #000 !important;
+    /* Black prints faster */
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]::after {
+    content: " (" attr(title) ")";
+  }
+
+  /*
+   * Don't show links that are fragment identifiers,
+   * or use the `javascript:` pseudo protocol
+   */
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after {
+    content: "";
+  }
+
+  pre {
+    white-space: pre-wrap !important;
+  }
+
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
+
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+
+
+/* ==========================================================================
+   Portfolio theme and layout
+   Everything below this line is site-specific. H5BP's base styles and
+   helper classes above (.hidden, .visually-hidden, .invisible, .clearfix,
+   the print styles) are left as shipped and reused where they fit.
+   ========================================================================== */
+
+/* THEME TOKENS
+   Light ("Paper") and dark ("Night") are deliberately different moods, not
+   one palette with the lightness flipped: Paper is warm paper and ink with
+   a terracotta accent; Night is a cool near-black with a mint-teal glow.
+   Both are checked against WCAG AA: every pairing below is at least
+   6.5:1 for body text and 5.4:1 for large or icon-sized content. */
+:root{
+  --bg:#f4efe4; --card:#fffcf6; --ink:#241f16; --muted:#5b5240; --line:#ddd2bc;
+  --tab:#f2caa0; --tab-ink:#3a2410;
+  --accent:#9a3f1d; --on-accent:#fffcf6; --focus:#9a3f1d;
+  --warm:#c07830; --arrow:#f3b685;
+  --shadow:0 8px 24px rgba(36,31,22,.14); --radius:18px;
+  /* One soft accent tint, reused for every hover/active state below. It only
+     needs declaring once: it references --accent, and --accent is itself
+     redeclared per theme, so this resolves correctly in both automatically. */
+  --hover-tint:color-mix(in srgb, var(--accent) 12%, transparent);
+  --head:"Familjen Grotesk","Trebuchet MS",system-ui,sans-serif;
+  --body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:light; box-sizing:border-box;
+  padding:env(safe-area-inset-top,0px) env(safe-area-inset-right,0px) env(safe-area-inset-bottom,0px) env(safe-area-inset-left,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0c1016; --card:#141a22; --ink:#e9edf2; --muted:#8fa0b0; --line:#232c37;
+    --tab:#163733; --tab-ink:#bdf3e6;
+    --accent:#5bd9c6; --on-accent:#0c1016; --focus:#7fe6d6;
+    --warm:#e3a753; --arrow:#146b5c; --shadow:0 8px 24px rgba(0,0,0,.55);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0c1016; --card:#141a22; --ink:#e9edf2; --muted:#8fa0b0; --line:#232c37;
+  --tab:#163733; --tab-ink:#bdf3e6;
+  --accent:#5bd9c6; --on-accent:#0c1016; --focus:#7fe6d6;
+  --warm:#e3a753; --arrow:#146b5c; --shadow:0 8px 24px rgba(0,0,0,.55);
+  color-scheme:dark;
+}
+
+/* NAMING NOTE
+   Reusable UI pieces below follow a light BEM pattern: block, then
+   block__element for a part of that block, block--modifier for a variant.
+   One-off classes that are self-explanatory in context (.desc, .issuer,
+   .note) are left as plain words instead of forced into the pattern. */
+
+/* BASE */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:var(--fs,100%)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);line-height:1.65;font-size:1rem;overflow-wrap:break-word}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{font-family:var(--head);line-height:1.15}
+ul{margin:0;padding:0}
+.plain{list-style:none}
+.stacked-list>li+li{margin-top:12px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+main:focus{outline:none}
+.ico{width:1.25rem;height:1.25rem;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ico.sm{width:1rem;height:1rem}
+.skip{position:absolute;left:12px;top:-80px;z-index:100;background:var(--ink);color:var(--card);padding:12px 18px;border-radius:10px;font-weight:600}
+.skip:focus{top:12px}
+
+/* SIDEBAR (becomes a slim top bar on phones) */
+.layout{display:grid;grid-template-columns:17rem minmax(0,1fr)}
+.sidebar{position:sticky;top:0;height:100vh;height:100dvh;overflow-y:auto;align-self:start;padding:32px 22px 7.5rem;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:18px}
+.identity{display:flex;flex-direction:column;align-items:center;text-align:center;gap:12px}
+.sidebar hr{width:100%;border:0;border-top:1px solid var(--line);margin:0}
+.avatar{flex:none;overflow:hidden;width:84px;height:84px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font:700 1.9rem var(--head)}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.who{min-width:0}
+.name{font:700 1.35rem var(--head)}
+.role{color:var(--muted);font-size:.95rem}
+.loc{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:.92rem}
+.socials{display:flex;gap:8px}
+.socials a{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;border:1px solid var(--line);text-decoration:none;transition:background-color .15s ease,border-color .15s ease,color .15s ease}
+.socials a:hover{border-color:var(--accent);color:var(--accent);background:var(--hover-tint)}
+.side-nav{display:flex;flex-direction:column;gap:4px}
+.side-nav a{display:flex;align-items:center;gap:12px;min-height:44px;padding:0 14px;border-radius:12px;text-decoration:none;color:var(--muted);font-weight:500;transition:background-color .15s ease,color .15s ease}
+.side-nav a:hover{color:var(--accent);background:var(--hover-tint)}
+.side-nav a[aria-current="true"]{background:var(--card);color:var(--ink);box-shadow:inset 3px 0 0 var(--accent),0 0 0 1px var(--line)}
+
+/* MAIN */
+main{width:100%;max-width:1100px;margin-inline:auto;padding:40px clamp(20px,4vw,56px) 40px}
+.hero{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:24px;padding:4px 0 28px;scroll-margin-top:24px}
+.hero-text{flex:1 1 420px;max-width:660px}
+.hero h1{font-size:clamp(2.1rem,5vw,3.4rem);letter-spacing:-.02em;margin-bottom:16px}
+.hero p{color:var(--muted);font-size:1.1rem;max-width:56ch}
+.actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:46px;padding:0 22px;border-radius:12px;background:var(--ink);color:var(--card);text-decoration:none;font-weight:600;border:1px solid var(--ink);transition:box-shadow .15s ease,transform .15s ease}
+.cta{border-radius:999px;padding:0 26px;min-height:48px;margin-top:6px;box-shadow:var(--shadow)}
+.cta .ico{color:var(--arrow)}
+.btn:hover{box-shadow:var(--shadow);transform:translateY(-1px)}
+
+/* LOCAL TIME WIDGET
+   Two live clocks: a fixed Manila time and the visitor's own device time,
+   both filled in by app.js. The HTML shows placeholder dashes until the
+   first tick so there's never a blank or misleading number on screen. */
+.clock{container-type:inline-size;padding:20px;gap:14px;margin-bottom:16px}
+.clock__row{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.clock__col{display:flex;flex-direction:column;gap:6px;min-width:9rem}
+.clock__col:last-child{align-items:flex-end;text-align:right}
+.clock__who{display:flex;align-items:center;gap:8px;margin:0;color:var(--muted);font-size:.9rem;font-weight:600}
+.clock__col:last-child .clock__who{flex-direction:row-reverse}
+.clock__dot{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:clock-pulse 2.2s ease-out infinite}
+.clock__time{margin:0;font-family:var(--head);font-size:clamp(1.6rem,4vw,2.1rem);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.clock__diff{margin:0;color:var(--muted);font-size:.9rem}
+@keyframes clock-pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb, var(--accent) 55%, transparent)}100%{box-shadow:0 0 0 9px transparent}}
+/* Two 9rem columns plus their 20px gap need ~308px to sit side by side;
+   below that, they'd wrap but the right-aligned one would stay pinned
+   right, looking like a misaligned accident rather than a real layout.
+   Side by side is kept for as long as it mathematically fits: this fixed
+   390px is the fallback for browsers without container query support
+   (correct at the default text size); the @container rule below it is
+   the accurate version, since it reacts to the card's real width and so
+   stays correct even if the accessibility panel's larger text is on. */
+@media (max-width:390px){
+  .clock__row{flex-direction:column;align-items:flex-start;gap:12px}
+  .clock__col{min-width:0;width:100%}
+  .clock__col:last-child{align-items:flex-start;text-align:left}
+  .clock__col:last-child .clock__who{flex-direction:row}
+}
+@container (max-width: calc(18rem + 19px)){
+  .clock__row{flex-direction:column;align-items:flex-start;gap:12px}
+  .clock__col{min-width:0;width:100%}
+  .clock__col:last-child{align-items:flex-start;text-align:left}
+  .clock__col:last-child .clock__who{flex-direction:row}
+}
+
+/* BENTO GRID AND CARDS */
+.bento{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:16px;align-items:start}
+.stack{display:grid;gap:16px;align-content:start}
+.c-contact{grid-column:1/-1}
+.c-contact .body{flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px}
+.c-contact .body p{flex:1 1 20rem;max-width:60ch}
+.card{background:var(--card);border:1px solid var(--line);border-radius:4px var(--radius) var(--radius) var(--radius);overflow:hidden;display:flex;flex-direction:column;scroll-margin-top:24px}
+.card>h2{display:flex;align-items:center;gap:8px;align-self:flex-start;background:var(--tab);color:var(--tab-ink);font-size:.95rem;padding:8px 20px 8px 16px;border-bottom-right-radius:var(--radius)}
+.body{padding:20px;display:flex;flex-direction:column;gap:14px;flex:1}
+.body p{color:var(--muted)}
+
+/* project cards
+   Each thumbnail gets an explicit modifier class (thumb-a/b/c) in the HTML
+   instead of picking a color by list position, so reordering or adding a
+   project can't silently change another project's color. */
+.project{display:flex;gap:16px;align-items:flex-start;padding:14px;border:1px solid var(--line);border-radius:14px;text-decoration:none;color:var(--ink);transition:background-color .15s ease,border-color .15s ease}
+.project:hover{border-color:var(--accent);background:var(--hover-tint)}
+.project__body{flex:1;min-width:0}
+.thumb{flex:0 0 84px;height:84px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--warm))}
+.thumb-b{background:linear-gradient(315deg,var(--accent),var(--warm))}
+.thumb-c{background:linear-gradient(200deg,var(--warm),var(--accent))}
+.project h3{font-size:1.05rem;display:flex;align-items:center;gap:8px;margin-bottom:4px}
+.desc{display:block;color:var(--muted);font-size:.95rem}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.tags span{font-size:.85rem;border:1px solid var(--line);border-radius:999px;padding:1px 10px;color:var(--muted)}
+
+/* credentials */
+.credential-list__item{padding:12px 14px;border:1px solid var(--line);border-radius:14px}
+.credential-list h3{font-size:1.05rem}
+.issuer{font-size:.92rem}
+.body .status{display:inline-flex;align-items:center;gap:6px;margin-top:4px;font-size:.92rem;font-weight:600;color:var(--accent)}
+.note{font-size:.9rem}
+
+/* services and tools
+   .chips reuses .plain (no bullets) but not .stacked-list, so its pills lay
+   out with the flex gap below instead of the vertical list spacing. Each
+   service bullet is a small gradient badge (reusing the same accent/warm
+   gradient as the project thumbnails) with a checkmark drawn in
+   var(--on-accent), so it's always the correct light-on-dark or
+   dark-on-light pairing for whichever gradient the current theme has. */
+.list{list-style:none;display:grid;gap:12px;color:var(--muted)}
+.list li{padding-left:26px;position:relative;transition:transform .15s ease,color .15s ease}
+.list li:hover{transform:translateX(3px);color:var(--ink)}
+.list li::before{content:"";position:absolute;left:0;top:.35em;width:15px;height:15px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--warm));box-shadow:0 2px 6px color-mix(in srgb, var(--ink) 18%, transparent),0 0 0 3px var(--hover-tint)}
+.list li::after{content:"";position:absolute;left:5px;top:calc(.35em + 4px);width:5px;height:8px;border-bottom:2px solid var(--on-accent);border-right:2px solid var(--on-accent);transform:rotate(40deg)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips li{border:1px solid var(--muted);border-radius:999px;padding:3px 14px;font-size:.92rem;transition:transform .15s ease,border-color .15s ease,background-color .15s ease,color .15s ease}
+.chips li:hover{transform:translateY(-2px);border-color:var(--accent);color:var(--accent);background:var(--hover-tint)}
+.groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(9.5rem,1fr));gap:18px 24px}
+.group h3{font-size:.9rem;color:var(--muted);margin-bottom:8px}
+
+/* contact */
+footer{position:fixed;left:0;bottom:0;z-index:5;width:17rem;padding:16px 22px;background:var(--bg);border-top:1px solid var(--line);border-right:1px solid var(--line);color:var(--muted);font-size:.85rem;line-height:1.5}
+
+/* PHONE LAYOUT */
+.tabbar{display:none}
+@media (max-width:1024px){
+  .layout{grid-template-columns:1fr}
+  .sidebar{position:static;height:auto;overflow:visible;flex-direction:row;flex-wrap:nowrap;align-items:center;gap:12px;padding:14px clamp(16px,4vw,32px);border-right:0;border-bottom:1px solid var(--line)}
+  .identity{display:contents}
+  .sidebar hr{display:none}
+  .loc,.socials,.side-nav{display:none}
+  .avatar{width:52px;height:52px;font-size:1.3rem}
+  .who{flex:1 1 0}
+  .name{font-size:1.15rem}
+  .role{font-size:.88rem;line-height:1.35}
+  .tools-row{margin:0;flex:none}
+  .a11y-btn{width:44px;padding:0;justify-content:center}
+  .a11y-btn .lbl{border:0;clip:rect(0,0,0,0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;white-space:nowrap;width:1px}
+  main{padding:24px clamp(20px,4vw,40px) 24px}
+  .cta{display:none}
+  footer{position:static;width:auto;padding:0 20px 104px;border:0;background:none;font-size:.92rem}
+  .tabbar{display:flex;position:fixed;z-index:20;left:50%;width:calc(100% - 24px);max-width:34rem;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom,0px));background:var(--card);border:1px solid var(--line);border-radius:30px;padding:6px 8px;justify-content:space-between;align-items:center;box-shadow:var(--shadow)}
+  .tabbar a{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-height:52px;padding:4px 2px;border-radius:20px;min-width:0;font-size:.78rem;font-weight:600;color:var(--muted);text-decoration:none}
+  .tabbar a span{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .tabbar a[aria-current="true"]{background:color-mix(in srgb, var(--accent) 16%, transparent);color:var(--accent)}
+  .tabbar .fab{flex:0 0 56px;width:56px;height:56px;margin:-30px 4px 0;border-radius:50%;background:var(--accent);color:var(--on-accent);box-shadow:var(--shadow)}
+}
+@media (max-width:640px){
+  .bento{grid-template-columns:1fr}
+  .stack{display:contents}
+  .c-projects{order:1}.c-about{order:2}.c-creds{order:3}.c-services{order:4}.c-tools{order:5}.c-contact{order:6;grid-column:auto}
+}
+@media (max-width:420px){.thumb{display:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.clock__dot{animation:none}*{transition:none!important}}
+@media (forced-colors:active){
+  .card,.project,.btn,.icon-btn,.a11y-btn,.socials a,.credential-list__item{border:1px solid CanvasText}
+  .side-nav a[aria-current="true"],.tabbar a[aria-current="true"]{outline:2px solid Highlight}
+}
+
+/* TOOL BUTTONS */
+.tools-row{display:flex;align-items:center;gap:8px;margin-top:4px}
+.icon-btn{display:grid;place-items:center;width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;transition:background-color .15s ease,border-color .15s ease,color .15s ease}
+.a11y-btn{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 16px;border-radius:12px;border:1px solid var(--line);background:transparent;color:var(--ink);font:500 .92rem var(--body);cursor:pointer;transition:background-color .15s ease,border-color .15s ease,color .15s ease}
+.icon-btn:hover,.a11y-btn:hover{border-color:var(--accent);color:var(--accent);background:var(--hover-tint)}
+
+/* ACCESSIBILITY PANEL
+   .panel is the dialog's content wrapper; .segmented is the text-size
+   control; .switch is a toggle row built from a checkbox + a track. */
+dialog{border:1px solid var(--line);border-radius:var(--radius);background:var(--card);color:var(--ink);padding:0;width:min(28rem,calc(100% - 32px));max-height:calc(100dvh - 32px);box-shadow:var(--shadow);overflow:auto}
+dialog::backdrop{background:rgba(10,14,20,.6)}
+.panel{padding:22px}
+.panel__head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:6px}
+.panel__head h2{display:flex;align-items:center;gap:10px;font-size:1.2rem}
+.panel__note{color:var(--muted);font-size:.92rem;margin-bottom:16px}
+fieldset{border:0;padding:0;margin:0 0 14px}
+legend{font-weight:600;padding:0;margin-bottom:8px}
+.segmented{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.segmented label{position:relative;display:block}
+.segmented input,.switch input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
+.segmented__option{display:grid;place-items:center;min-height:44px;border:1px solid var(--line);border-radius:12px;font-weight:500}
+.segmented input:checked+.segmented__option{background:var(--ink);color:var(--card);border-color:var(--ink)}
+.segmented input:focus-visible+.segmented__option{outline:3px solid var(--focus);outline-offset:3px}
+.switch-list{display:grid;gap:8px;margin-bottom:16px}
+.switch{position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:48px;padding:0 14px;border:1px solid var(--line);border-radius:12px;cursor:pointer}
+.switch__track{flex:none;position:relative;width:44px;height:26px;border-radius:999px;border:1px solid var(--muted)}
+.switch__track::after{content:"";position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;background:var(--muted);transition:transform .15s}
+.switch input:checked~.switch__track{background:var(--accent);border-color:var(--accent)}
+.switch input:checked~.switch__track::after{transform:translateX(18px);background:var(--on-accent)}
+.switch input:focus-visible~.switch__track{outline:3px solid var(--focus);outline-offset:3px}
+
+/* USER OPTIONS (set by app.js on the <html> element)
+   text-decoration on the underline-links option is a deliberate, documented
+   use of !important: it's a user accessibility preference and needs to win
+   over every component's own link styling (nav links, card links, etc.),
+   not just the ones that happen to have lower specificity. */
+:root[data-contrast="high"]{--muted:var(--ink);--line:color-mix(in srgb,var(--ink) 60%,var(--card))}
+:root[data-contrast="high"] .card,:root[data-contrast="high"] .project,:root[data-contrast="high"] .credential-list__item{border-width:2px}
+:root[data-font="readable"]{--head:"Atkinson Hyperlegible",Verdana,Tahoma,sans-serif;--body:"Atkinson Hyperlegible",Verdana,Tahoma,sans-serif}
+:root[data-spacing="wide"] body{line-height:1.9;letter-spacing:.04em;word-spacing:.1em}
+:root[data-links="underline"] a{text-decoration:underline!important;text-underline-offset:3px}
+:root[data-motion="reduce"]{scroll-behavior:auto}
+:root[data-motion="reduce"] *{transition:none!important;animation:none!important}
+@media (prefers-reduced-motion:reduce){.switch__track::after{transition:none}}

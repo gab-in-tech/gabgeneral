@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <title>Gab | Web Design and Development VA</title>
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="description" content="Web design and development VA who builds clean, fast websites for small businesses with plain HTML, CSS, and JavaScript.">
+
+  <meta property="og:title" content="Gab | Web Design and Development VA">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content=""><!-- fill in once the site has a live domain -->
+  <meta property="og:image" content="icon.png">
+  <meta property="og:image:alt" content="Monogram: the letter G in a dark circle">
+
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.png">
+
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#f4efe4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0c1016" media="(prefers-color-scheme: dark)">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@600;700&family=Public+Sans:wght@400;500;600&display=swap">
+</head>
+
+<body>
+
+<!-- Icon set: one sprite, reused with <use>. Icons are decorative (aria-hidden) because each has a visible text label. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5"/><path d="M5 10v10h5v-6h4v6h5V10"/></symbol>
+  <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+  <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></symbol>
+  <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8.5 14 7 22l5-3 5 3-1.5-8"/></symbol>
+  <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"/><path d="M3 13h18"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 8-5 4 5 4"/><path d="m16 8 5 4-5 4"/><path d="m14 5-4 14"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+  <symbol id="i-github" viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65S8.93 17.38 9 18v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></symbol>
+  <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></symbol>
+  <symbol id="i-access" viewBox="0 0 24 24"><circle cx="12" cy="4.5" r="1.8"/><path d="M5 8.5c4.3 1.3 9.7 1.3 14 0"/><path d="M12 8.5v5"/><path d="m8.5 20 3.5-6.5 3.5 6.5"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11"/><path d="m7 10 5 5 5-5"/><path d="M5 19h14"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+</svg>
+
+<a class="skip" href="#main">Skip to main content</a>
+
+<div class="layout">
+  <header class="sidebar">
+    <div class="identity">
+      <!-- Photo: replace the letter with <img src="img/photo.jpg" alt="Gab"> and remove aria-hidden from this div. -->
+      <div class="avatar" aria-hidden="true">G</div>
+      <div class="who">
+        <p class="name">Gab General</p>
+        <p class="role">Web Development VA</p>
+      </div>
+      <p class="loc"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg>Philippines, UTC+8</p>
+      <div class="socials">
+        <a href="https://github.com/" aria-label="GitHub profile"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-github"/></svg></a>
+        <a href="https://www.linkedin.com/" aria-label="LinkedIn profile"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-linkedin"/></svg></a>
+        <a href="mailto:gab@example.com" aria-label="Send an email"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg></a>
+      </div>
+    </div>
+    <hr>
+    <nav class="side-nav" aria-label="Main">
+      <a href="#top" data-target="top"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-home"/></svg>Home</a>
+      <a href="#projects" data-target="projects"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-folder"/></svg>Projects</a>
+      <a href="#about" data-target="about"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-user"/></svg>About</a>
+      <a href="#credentials" data-target="credentials"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-award"/></svg>Credentials</a>
+      <a href="#services" data-target="services"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-briefcase"/></svg>Services</a>
+      <a href="#contact" data-target="contact"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>Contact</a>
+    </nav>
+    <div class="tools-row">
+      <button id="theme-toggle" class="icon-btn" type="button" aria-label="Switch to dark theme"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-moon"/></svg></button>
+      <button id="a11y-open" class="a11y-btn" type="button" aria-haspopup="dialog"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-access"/></svg><span class="lbl">Accessibility</span></button>
+    </div>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-text">
+        <h1 id="hero-title">I build clean, fast websites for small businesses.</h1>
+        <p>Website design and development for small businesses. I build new sites, fix and update existing ones, and write plain-language instructions so you always know how your site works.</p>
+      </div>
+      <a class="btn cta" href="#contact">Get in touch<svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow-up-right"/></svg></a>
+    </section>
+
+    <!-- Live times, computed in app.js. Manila is fixed (Intl, so it stays
+         correct through daylight-saving changes elsewhere); "You" reads the
+         visitor's own device clock. -->
+    <section class="card clock" aria-label="Local time comparison">
+      <div class="clock__row">
+        <div class="clock__col">
+          <p class="clock__who"><span class="clock__dot" aria-hidden="true"></span>Bicol</p>
+          <p class="clock__time" id="clock-mine">&ndash;&ndash;:&ndash;&ndash;</p>
+        </div>
+        <div class="clock__col">
+          <p class="clock__who">You</p>
+          <p class="clock__time" id="clock-yours">&ndash;&ndash;:&ndash;&ndash;</p>
+        </div>
+      </div>
+      <p class="clock__diff" id="clock-diff">Reading your local time&hellip;</p>
+    </section>
+
+    <div class="bento">
+      <div class="stack">
+        <section class="card c-projects" id="projects" aria-labelledby="h-projects">
+          <h2 id="h-projects"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-folder"/></svg>Projects</h2>
+          <div class="body">
+            <!-- Replace each href with the real repository or live site URL when it exists. -->
+            <ul class="plain stacked-list">
+              <li><a class="project" href="https://github.com/">
+                <span class="thumb thumb-a" aria-hidden="true"></span>
+                <div class="project__body">
+                  <h3>Neighborhood store landing page<svg class="ico sm" aria-hidden="true" focusable="false"><use href="#i-external"/></svg></h3>
+                  <span class="desc">Practice build. A one-page site with store hours, a product list, and a contact section, laid out to read well on phones.</span>
+                  <span class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></span>
+                </div>
+              </a></li>
+              <li><a class="project" href="https://github.com/">
+                <span class="thumb thumb-b" aria-hidden="true"></span>
+                <div class="project__body">
+                  <h3>Personal portfolio site<svg class="ico sm" aria-hidden="true" focusable="false"><use href="#i-external"/></svg></h3>
+                  <span class="desc">This site. Built from scratch with plain HTML, CSS, and JavaScript, with light and dark themes and no frameworks.</span>
+                  <span class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></span>
+                </div>
+              </a></li>
+              <li><a class="project" href="https://github.com/">
+                <span class="thumb thumb-c" aria-hidden="true"></span>
+                <div class="project__body">
+                  <h3>Responsive layout studies<svg class="ico sm" aria-hidden="true" focusable="false"><use href="#i-external"/></svg></h3>
+                  <span class="desc">Small exercises on Flexbox, CSS Grid, and media queries, each rebuilt until it worked on any screen size.</span>
+                  <span class="tags"><span>CSS</span><span>Flexbox</span><span>Grid</span></span>
+                </div>
+              </a></li>
+            </ul>
+          </div>
+        </section>
+        <section class="card c-tools" aria-labelledby="h-tools">
+          <h2 id="h-tools"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-code"/></svg>Tools</h2>
+          <div class="body">
+            <div class="groups">
+              <div class="group"><h3>Languages</h3><ul class="plain chips"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul></div>
+              <div class="group"><h3>Layout and styling</h3><ul class="plain chips"><li>Flexbox</li><li>CSS Grid</li><li>Media queries</li></ul></div>
+              <div class="group"><h3>Dev workflow</h3><ul class="plain chips"><li>Git</li><li>GitHub</li><li>VS Code</li></ul></div>
+              <div class="group"><h3>Hosting</h3><ul class="plain chips"><li>Cloudflare Pages</li><li>Github Pages</li><li>Netlify</li><li>Porkbun</li></ul></div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="stack">
+        <section class="card c-about" id="about" aria-labelledby="h-about">
+          <h2 id="h-about"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-user"/></svg>About</h2>
+          <div class="body">
+            <p>I'm an Information Systems graduate training as a web design and development VA. I learn HTML, CSS, and JavaScript from the ground up so I understand every line I ship.</p>
+            <p>You can expect clear updates, on-time work, and plain-language explanations of what I changed.</p>
+          </div>
+        </section>
+        <section class="card c-creds" id="credentials" aria-labelledby="h-creds">
+          <h2 id="h-creds"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-award"/></svg>Credentials</h2>
+          <div class="body">
+            <!-- When a certificate is earned: change the status text, swap #i-clock for #i-check, and link to the verified certificate. -->
+            <ul class="plain stacked-list credential-list">
+              <li class="credential-list__item">
+                <h3>Responsive Web Design</h3>
+                <p class="issuer">freeCodeCamp</p>
+                <p class="status"><svg class="ico sm" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>In progress</p>
+              </li>
+              <li class="credential-list__item">
+                <h3>JavaScript</h3>
+                <p class="issuer">freeCodeCamp</p>
+                <p class="status"><svg class="ico sm" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg>Planned</p>
+              </li>
+            </ul>
+            <p class="note">Verified certificate links will be added here once earned.</p>
+          </div>
+        </section>
+        <section class="card c-services" id="services" aria-labelledby="h-services">
+          <h2 id="h-services"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-briefcase"/></svg>Services</h2>
+          <div class="body">
+            <ul class="list">
+              <li>Landing pages and small business sites</li>
+              <li>Fixes and updates for existing sites</li>
+              <li>Mobile-friendly layouts</li>
+              <li>Site setup and free hosting</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+      <section class="card c-contact" id="contact" aria-labelledby="h-contact">
+        <h2 id="h-contact"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>Contact</h2>
+        <div class="body">
+          <p>Have a small website job or a fix to hand off? Send me what you need and your deadline, and I'll reply with next steps.</p>
+          <div class="actions">
+            <!-- Replace with the real file once it exists, e.g. href="cv-gab.pdf" -->
+            <a class="btn" href="cv.pdf" download><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-download"/></svg>CV</a>
+            <a class="btn" href="mailto:gab@example.com"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>Email me</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<footer>&copy; 2026 · Gab General · All rights reserved.</footer>
+
+<nav class="tabbar" aria-label="Quick links">
+  <a href="#top" data-target="top"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-home"/></svg><span>Home</span></a>
+  <a href="#projects" data-target="projects"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-folder"/></svg><span>Work</span></a>
+  <a href="#contact" class="fab" aria-label="Contact" data-target="contact"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg></a>
+  <a href="#about" data-target="about"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-user"/></svg><span>About</span></a>
+  <a href="#services" data-target="services"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-briefcase"/></svg><span>Services</span></a>
+</nav>
+
+<dialog id="a11y-panel" aria-labelledby="a11y-title">
+  <div class="panel">
+    <div class="panel__head">
+      <h2 id="a11y-title"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-access"/></svg>Accessibility options</h2>
+      <button id="a11y-close" class="icon-btn" type="button" aria-label="Close accessibility options"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-x"/></svg></button>
+    </div>
+    <p class="panel__note">Changes apply right away and are saved on this device.</p>
+    <fieldset>
+      <legend>Text size</legend>
+      <div class="segmented">
+        <label><input type="radio" name="size" value="100"><span class="segmented__option">Default</span></label>
+        <label><input type="radio" name="size" value="118"><span class="segmented__option">Large</span></label>
+        <label><input type="radio" name="size" value="136"><span class="segmented__option">Larger</span></label>
+      </div>
+    </fieldset>
+    <div class="switch-list">
+      <label class="switch"><input type="checkbox" role="switch" data-opt="contrast"><span>Higher contrast</span><span class="switch__track" aria-hidden="true"></span></label>
+      <label class="switch"><input type="checkbox" role="switch" data-opt="font"><span>Easy-to-read font</span><span class="switch__track" aria-hidden="true"></span></label>
+      <label class="switch"><input type="checkbox" role="switch" data-opt="spacing"><span>Extra text spacing</span><span class="switch__track" aria-hidden="true"></span></label>
+      <label class="switch"><input type="checkbox" role="switch" data-opt="links"><span>Underline all links</span><span class="switch__track" aria-hidden="true"></span></label>
+      <label class="switch"><input type="checkbox" role="switch" data-opt="motion"><span>Reduce motion</span><span class="switch__track" aria-hidden="true"></span></label>
+    </div>
+    <button id="a11y-reset" class="btn" type="button">Reset all</button>
+  </div>
+</dialog>
+
+<script src="js/app.js"></script>
+</body>
+</html>
