@@ -1,4 +1,4 @@
-# Gab — Web Design and Development VA portfolio
+# Gab — Web Development VA portfolio
 
 Plain HTML, CSS, and JavaScript. No build step, no framework.
 Built on top of HTML5 Boilerplate v9.0.1 (see css/style.css for the parts
