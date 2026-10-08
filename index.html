@@ -5,19 +5,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="color-scheme" content="light dark">
-  <title>Gab | Web Design and Development VA</title>
+  <title>Gab | Web Development VA</title>
   <link rel="stylesheet" href="css/style.css">
-  <meta name="description" content="Web design and development VA who builds clean, fast websites for small businesses with plain HTML, CSS, and JavaScript.">
+  <meta name="description" content="Web development VA who helps small businesses get websites that work. Simple, and explained in plain words.">
 
-  <meta property="og:title" content="Gab | Web Design and Development VA">
+  <meta property="og:title" content="Gab | Web Development VA">
   <meta property="og:type" content="website">
-  <meta property="og:url" content=""><!-- fill in once the site has a live domain -->
+  <meta property="og:url" content="https://gabgeneral.pages.dev/"><!-- should change to is.a.dev domain once accepted -->
   <meta property="og:image" content="icon.png">
   <meta property="og:image:alt" content="Monogram: the letter G in a dark circle">
 
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/icon.svg" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="icon.png">
+  <link rel="icon" href="g2-favicon-set/favicon.ico" sizes="32x32">
+  <link rel="icon" href="g2-favicon-set/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="g2-favicon-set/favicon-180.png">
 
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#f4efe4" media="(prefers-color-scheme: light)">
@@ -57,17 +57,24 @@
 <div class="layout">
   <header class="sidebar">
     <div class="identity">
-      <!-- Photo: replace the letter with <img src="img/photo.jpg" alt="Gab"> and remove aria-hidden from this div. -->
-      <div class="avatar" aria-hidden="true">G</div>
+      <div class="avatar">
+        <img src="img/general-headshot-108.webp"
+     srcset="img/general-headshot-64.webp 64w, 
+     img/general-headshot-108.webp 108w, 
+     img/general-headshot-160.webp 160w, 
+     img/general-headshot-216.webp 216w, 
+     img/general-headshot-324.webp 324w"
+     sizes="(max-width: 1024px) 64px, 108px"
+     alt="Gab" width="108" height="108" decoding="async"></div>
       <div class="who">
         <p class="name">Gab General</p>
         <p class="role">Web Development VA</p>
       </div>
       <p class="loc"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg>Philippines, UTC+8</p>
       <div class="socials">
-        <a href="https://github.com/" aria-label="GitHub profile"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-github"/></svg></a>
-        <a href="https://www.linkedin.com/" aria-label="LinkedIn profile"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-linkedin"/></svg></a>
-        <a href="mailto:gab@example.com" aria-label="Send an email"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg></a>
+        <a href="https://github.com/gab-in-tech" aria-label="GitHub profile"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-github"/></svg></a>
+        <a href="https://www.linkedin.com/in/gab-general" aria-label="LinkedIn profile"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-linkedin"/></svg></a>
+        <a href="mailto:gabxgeneral@gmail.com" aria-label="Send an email"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg></a>
       </div>
     </div>
     <hr>
@@ -88,10 +95,10 @@
   <main id="main" tabindex="-1">
     <section class="hero" id="top" aria-labelledby="hero-title">
       <div class="hero-text">
-        <h1 id="hero-title">I build clean, fast websites for small businesses.</h1>
-        <p>Website design and development for small businesses. I build new sites, fix and update existing ones, and write plain-language instructions so you always know how your site works.</p>
+        <h1 id="hero-title">I help small businesses get websites that work.</h1>
+        <p>I build websites without making things more complicated than they need to be. Simple tools when they work. Code when it's needed. Clear explanations either way.</p>
       </div>
-      <a class="btn cta" href="#contact">Get in touch<svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow-up-right"/></svg></a>
+      <a class="btn cta" href="https://tally.so/r/D4EY4N">Get in touch<svg class="ico" aria-hidden="true" focusable="false"><use href="#i-arrow-up-right"/></svg></a>
     </section>
 
     <!-- Live times, computed in app.js. Manila is fixed (Intl, so it stays
@@ -100,7 +107,7 @@
     <section class="card clock" aria-label="Local time comparison">
       <div class="clock__row">
         <div class="clock__col">
-          <p class="clock__who"><span class="clock__dot" aria-hidden="true"></span>Bicol</p>
+          <p class="clock__who"><span class="clock__dot" aria-hidden="true"></span>Bicol, Philippines</p>
           <p class="clock__time" id="clock-mine">&ndash;&ndash;:&ndash;&ndash;</p>
         </div>
         <div class="clock__col">
@@ -112,37 +119,37 @@
     </section>
 
     <div class="bento">
-      <div class="stack">
         <section class="card c-projects" id="projects" aria-labelledby="h-projects">
           <h2 id="h-projects"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-folder"/></svg>Projects</h2>
           <div class="body">
             <!-- Replace each href with the real repository or live site URL when it exists. -->
             <ul class="plain stacked-list">
-              <li><a class="project" href="https://github.com/">
-                <span class="thumb thumb-a" aria-hidden="true"></span>
+              <li><a class="project" href="https://github.com/gab-in-tech/gabay-edutech">
+                <img class="thumb thumb-a" src="img/project-1.webp" alt="" width="84" height="84" loading="lazy" decoding="async">
                 <div class="project__body">
-                  <h3>Neighborhood store landing page<svg class="ico sm" aria-hidden="true" focusable="false"><use href="#i-external"/></svg></h3>
-                  <span class="desc">Practice build. A one-page site with store hours, a product list, and a contact section, laid out to read well on phones.</span>
+                  <h3>GABAY EduTech<svg class="ico sm" aria-hidden="true" focusable="false"><use href="#i-external"/></svg></h3>
+                  <span class="desc">A guided coursework platform helping pre-service teachers build independent lesson-planning skills before relying on AI. Vanilla HTML/CSS/JS, fully responsive, built with accessibility in mind.</span>
                   <span class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></span>
                 </div>
               </a></li>
-              <li><a class="project" href="https://github.com/">
-                <span class="thumb thumb-b" aria-hidden="true"></span>
+              <li><a class="project" href="https://github.com/gab-in-tech/ba-webfolio">
+                <img class="thumb thumb-b" src="img/project-2.webp" alt="" width="84" height="84" loading="lazy" decoding="async">
                 <div class="project__body">
-                  <h3>Personal portfolio site<svg class="ico sm" aria-hidden="true" focusable="false"><use href="#i-external"/></svg></h3>
-                  <span class="desc">This site. Built from scratch with plain HTML, CSS, and JavaScript, with light and dark themes and no frameworks.</span>
+                  <h3>BA Webfolio<svg class="ico sm" aria-hidden="true" focusable="false"><use href="#i-external"/></svg></h3>
+                  <span class="desc">Just a backup for one of my websites. Done for version control and backing up the whole system. Fully Optimized and cleaned.</span>
                   <span class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></span>
                 </div>
               </a></li>
-              <li><a class="project" href="https://github.com/">
-                <span class="thumb thumb-c" aria-hidden="true"></span>
+              <li><a class="project" href="https://github.com/gab-in-tech/myanmar-webpage">
+                <img class="thumb thumb-c" src="img/project-3.webp" alt="" width="84" height="84" loading="lazy" decoding="async">
                 <div class="project__body">
-                  <h3>Responsive layout studies<svg class="ico sm" aria-hidden="true" focusable="false"><use href="#i-external"/></svg></h3>
-                  <span class="desc">Small exercises on Flexbox, CSS Grid, and media queries, each rebuilt until it worked on any screen size.</span>
-                  <span class="tags"><span>CSS</span><span>Flexbox</span><span>Grid</span></span>
+                  <h3>Learn Burmese: A Myanmar Language Guide<svg class="ico sm" aria-hidden="true" focusable="false"><use href="#i-external"/></svg></h3>
+                  <span class="desc">An interactive web app inspired by Encarta Kids introducing Myanmar's language, basic grammar, common phrases, and everyday expressions.</span>
+                  <span class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span></span>
                 </div>
               </a></li>
             </ul>
+            <p class="note">Want to see more? <a href="https://app.notion.com/p/gabgeneral/Inside-the-Process-34de05f6a1698034b65dfde21565fe50?source=copy_link" target="_blank" rel="noopener noreferrer">Browse all my projects on Notion<span class="visually-hidden"> (opens in a new tab)</span></a>.</p>
           </div>
         </section>
         <section class="card c-tools" aria-labelledby="h-tools">
@@ -150,19 +157,34 @@
           <div class="body">
             <div class="groups">
               <div class="group"><h3>Languages</h3><ul class="plain chips"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul></div>
-              <div class="group"><h3>Layout and styling</h3><ul class="plain chips"><li>Flexbox</li><li>CSS Grid</li><li>Media queries</li></ul></div>
               <div class="group"><h3>Dev workflow</h3><ul class="plain chips"><li>Git</li><li>GitHub</li><li>VS Code</li></ul></div>
+              <div class="group"><h3>Platforms</h3><ul class="plain chips"><li>WordPress</li></ul></div>
               <div class="group"><h3>Hosting</h3><ul class="plain chips"><li>Cloudflare Pages</li><li>Github Pages</li><li>Netlify</li><li>Porkbun</li></ul></div>
             </div>
           </div>
         </section>
-      </div>
-      <div class="stack">
+        <section class="card c-services" id="services" aria-labelledby="h-services">
+          <h2 id="h-services"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-briefcase"/></svg>Services</h2>
+          <div class="body">
+            <ul class="list">
+              <li>Landing pages and small business sites</li>
+              <li>Fixes and updates for existing sites</li>
+              <li>Responsive layouts</li>
+              <li>Site setup and free hosting</li>
+            </ul>
+          </div>
+        </section>
         <section class="card c-about" id="about" aria-labelledby="h-about">
           <h2 id="h-about"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-user"/></svg>About</h2>
           <div class="body">
-            <p>I'm an Information Systems graduate training as a web design and development VA. I learn HTML, CSS, and JavaScript from the ground up so I understand every line I ship.</p>
-            <p>You can expect clear updates, on-time work, and plain-language explanations of what I changed.</p>
+            <p>Hi, I'm Gab 🙌. I'm from Bicol, where we take our food seriously and our chili even more seriously. My spice tolerance, however, didn't get the memo. 😅</p>
+            <p>I'm a husband, a dad, and a web developer who enjoys figuring things out. When I'm not working or taking care of family, you'll usually find me gaming, reading, or hunting for a good problem to solve (not the financial kind, thanks).</p>
+            <p>I'm building my skills in HTML, CSS, and JavaScript one project at a time. I'm not going to pretend I know everything. Sometimes I fix a problem in ten minutes; sometimes I lose an hour to one missing bracket. Either way, I learn, check my work, and keep going.</p>
+            <p>That matters when I'm working on your website. You shouldn't need to understand code to know what's happening. I'll explain things in plain language, keep things as simple as they need to be, and make sure you know what I'm doing and why.</p>
+            <p>I use AI tools when they help me learn or troubleshoot, but I don't blindly copy and paste the results. I understand and test the code myself, and I take responsibility for what I deliver.</p>
+            <p>Most importantly, I'll be straightforward with you. You'll get clear updates, realistic deadlines, and an honest answer when I don't know something. If I make a mistake, you'll hear it from me first, and I'll fix it.</p>
+            <p>I'm still growing as a developer, but I'm serious about the work. If you need a website that's clear, useful, and built with care, I'd be happy to help.</p>
+
           </div>
         </section>
         <section class="card c-creds" id="credentials" aria-labelledby="h-creds">
@@ -184,30 +206,19 @@
             <p class="note">Verified certificate links will be added here once earned.</p>
           </div>
         </section>
-        <section class="card c-services" id="services" aria-labelledby="h-services">
-          <h2 id="h-services"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-briefcase"/></svg>Services</h2>
-          <div class="body">
-            <ul class="list">
-              <li>Landing pages and small business sites</li>
-              <li>Fixes and updates for existing sites</li>
-              <li>Mobile-friendly layouts</li>
-              <li>Site setup and free hosting</li>
-            </ul>
-          </div>
-        </section>
-      </div>
-      <section class="card c-contact" id="contact" aria-labelledby="h-contact">
+    </div>
+
+    <section class="card c-contact" id="contact" aria-labelledby="h-contact">
         <h2 id="h-contact"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>Contact</h2>
         <div class="body">
-          <p>Have a small website job or a fix to hand off? Send me what you need and your deadline, and I'll reply with next steps.</p>
+          <p>Not sure what you need? Most people aren't, and that's fine. Tell me what's bugging you and when you need it sorted. I'll come back with a clear plan in plain words, with no pressure to say yes.</p>
           <div class="actions">
             <!-- Replace with the real file once it exists, e.g. href="cv-gab.pdf" -->
             <a class="btn" href="cv.pdf" download><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-download"/></svg>CV</a>
-            <a class="btn" href="mailto:gab@example.com"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>Email me</a>
+            <a class="btn" href="mailto:gabxgeneral@gmail.com"><svg class="ico" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg>Email me</a>
           </div>
         </div>
       </section>
-    </div>
   </main>
 </div>
 
