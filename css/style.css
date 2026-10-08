@@ -290,6 +290,7 @@ ul{margin:0;padding:0}
 .plain{list-style:none}
 .stacked-list>li+li{margin-top:12px}
 a{color:inherit}
+::selection{background:color-mix(in srgb,var(--accent) 35%,var(--bg));color:var(--ink);text-shadow:none}
 :focus-visible{outline:3px solid var(--focus);outline-offset:3px}
 main:focus{outline:none}
 .ico{width:1.25rem;height:1.25rem;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
@@ -317,8 +318,12 @@ main:focus{outline:none}
 .side-nav a[aria-current="true"]{background:var(--card);color:var(--ink);box-shadow:inset 3px 0 0 var(--accent),0 0 0 1px var(--line)}
 
 /* MAIN */
-main{width:100%;max-width:1100px;margin-inline:auto;padding:40px clamp(20px,4vw,56px) 40px}
-.hero{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:24px;padding:4px 0 28px;scroll-margin-top:24px}
+/* main is a vertical flex column: the gap below is the ONLY spacing between
+   the hero, clock, cards and contact, so adding or removing a section never
+   needs a margin tweak. It is also a size container, so the card layout below
+   reacts to the real width of the content area (and to larger text sizes). */
+main{display:flex;flex-direction:column;gap:16px;container:page/inline-size;width:100%;max-width:1100px;margin-inline:auto;padding:40px clamp(20px,4vw,56px) 40px}
+.hero{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:24px;padding:4px 0 12px;scroll-margin-top:24px}
 .hero-text{flex:1 1 420px;max-width:660px}
 .hero h1{font-size:clamp(2.1rem,5vw,3.4rem);letter-spacing:-.02em;margin-bottom:16px}
 .hero p{color:var(--muted);font-size:1.1rem;max-width:56ch}
@@ -332,7 +337,7 @@ main{width:100%;max-width:1100px;margin-inline:auto;padding:40px clamp(20px,4vw,
    Two live clocks: a fixed Manila time and the visitor's own device time,
    both filled in by app.js. The HTML shows placeholder dashes until the
    first tick so there's never a blank or misleading number on screen. */
-.clock{container-type:inline-size;padding:20px;gap:14px;margin-bottom:16px}
+.clock{container-type:inline-size;padding:20px;gap:14px}
 .clock__row{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap}
 .clock__col{display:flex;flex-direction:column;gap:6px;min-width:9rem}
 .clock__col:last-child{align-items:flex-end;text-align:right}
@@ -363,10 +368,25 @@ main{width:100%;max-width:1100px;margin-inline:auto;padding:40px clamp(20px,4vw,
   .clock__col:last-child .clock__who{flex-direction:row}
 }
 
-/* BENTO GRID AND CARDS */
-.bento{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:16px;align-items:start}
-.stack{display:grid;gap:16px;align-content:start}
-.c-contact{grid-column:1/-1}
+/* BENTO LAYOUT AND CARDS */
+/* Narrow: one column, flex, with the order rules below setting the phone
+   reading order (a new card with no order rule goes last).
+   Wide: CSS multi-column. The browser balances the columns by height and
+   each card flows into whichever column has room, so adding, removing or
+   resizing a card re-balances automatically: no shared rows, no empty holes,
+   and no wrapper elements needed in the HTML. Cards never split across
+   columns (break-inside:avoid). Spacing between stacked cards is margin,
+   because flex "gap" does not apply inside columns (the browser drops the
+   last card's margin at the bottom of a column, so main's own 16px gap
+   is the spacing above Contact). Multi-column follows source order, so on wide screens the order rules are
+   ignored; keep the HTML in the order you want to read on desktop. */
+.bento{display:flex;flex-direction:column;gap:16px}
+.bento .card{order:9}
+.bento .c-projects{order:1}.bento .c-about{order:2}.bento .c-creds{order:3}.bento .c-services{order:4}.bento .c-tools{order:5}
+@container page (min-width:41rem){
+  .bento{display:block;column-count:2;column-gap:16px}
+  .bento .card{break-inside:avoid;-webkit-column-break-inside:avoid;page-break-inside:avoid;margin-bottom:16px}
+}
 .c-contact .body{flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 24px}
 .c-contact .body p{flex:1 1 20rem;max-width:60ch}
 .card{background:var(--card);border:1px solid var(--line);border-radius:4px var(--radius) var(--radius) var(--radius);overflow:hidden;display:flex;flex-direction:column;scroll-margin-top:24px}
@@ -378,10 +398,11 @@ main{width:100%;max-width:1100px;margin-inline:auto;padding:40px clamp(20px,4vw,
    Each thumbnail gets an explicit modifier class (thumb-a/b/c) in the HTML
    instead of picking a color by list position, so reordering or adding a
    project can't silently change another project's color. */
+.c-projects{container:projects/inline-size}
 .project{display:flex;gap:16px;align-items:flex-start;padding:14px;border:1px solid var(--line);border-radius:14px;text-decoration:none;color:var(--ink);transition:background-color .15s ease,border-color .15s ease}
 .project:hover{border-color:var(--accent);background:var(--hover-tint)}
 .project__body{flex:1;min-width:0}
-.thumb{flex:0 0 84px;height:84px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--warm))}
+.thumb{flex:0 0 84px;height:84px;object-fit:cover;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--warm))}
 .thumb-b{background:linear-gradient(315deg,var(--accent),var(--warm))}
 .thumb-c{background:linear-gradient(200deg,var(--warm),var(--accent))}
 .project h3{font-size:1.05rem;display:flex;align-items:center;gap:8px;margin-bottom:4px}
@@ -411,7 +432,7 @@ main{width:100%;max-width:1100px;margin-inline:auto;padding:40px clamp(20px,4vw,
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chips li{border:1px solid var(--muted);border-radius:999px;padding:3px 14px;font-size:.92rem;transition:transform .15s ease,border-color .15s ease,background-color .15s ease,color .15s ease}
 .chips li:hover{transform:translateY(-2px);border-color:var(--accent);color:var(--accent);background:var(--hover-tint)}
-.groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(9.5rem,1fr));gap:18px 24px}
+.groups{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,9.5rem),1fr));gap:18px 24px}
 .group h3{font-size:.9rem;color:var(--muted);margin-bottom:8px}
 
 /* contact */
@@ -420,13 +441,13 @@ footer{position:fixed;left:0;bottom:0;z-index:5;width:17rem;padding:16px 22px;ba
 /* PHONE LAYOUT */
 .tabbar{display:none}
 @media (max-width:1024px){
-  .layout{grid-template-columns:1fr}
-  .sidebar{position:static;height:auto;overflow:visible;flex-direction:row;flex-wrap:nowrap;align-items:center;gap:12px;padding:14px clamp(16px,4vw,32px);border-right:0;border-bottom:1px solid var(--line)}
+  .layout{grid-template-columns:minmax(0,1fr)}
+  .sidebar{position:static;height:auto;overflow:visible;flex-direction:row;flex-wrap:wrap;align-items:center;gap:12px;padding:14px clamp(16px,4vw,32px);border-right:0;border-bottom:1px solid var(--line)}
   .identity{display:contents}
   .sidebar hr{display:none}
   .loc,.socials,.side-nav{display:none}
   .avatar{width:52px;height:52px;font-size:1.3rem}
-  .who{flex:1 1 0}
+  .who{flex:1 1 6rem}
   .name{font-size:1.15rem}
   .role{font-size:.88rem;line-height:1.35}
   .tools-row{margin:0;flex:none}
@@ -441,12 +462,8 @@ footer{position:fixed;left:0;bottom:0;z-index:5;width:17rem;padding:16px 22px;ba
   .tabbar a[aria-current="true"]{background:color-mix(in srgb, var(--accent) 16%, transparent);color:var(--accent)}
   .tabbar .fab{flex:0 0 56px;width:56px;height:56px;margin:-30px 4px 0;border-radius:50%;background:var(--accent);color:var(--on-accent);box-shadow:var(--shadow)}
 }
-@media (max-width:640px){
-  .bento{grid-template-columns:1fr}
-  .stack{display:contents}
-  .c-projects{order:1}.c-about{order:2}.c-creds{order:3}.c-services{order:4}.c-tools{order:5}.c-contact{order:6;grid-column:auto}
-}
-@media (max-width:420px){.thumb{display:none}}
+/* Thumbnails step aside when the Projects card itself gets narrow */
+@container projects (max-width:22rem){.thumb{display:none}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.clock__dot{animation:none}*{transition:none!important}}
 @media (forced-colors:active){
   .card,.project,.btn,.icon-btn,.a11y-btn,.socials a,.credential-list__item{border:1px solid CanvasText}
@@ -497,3 +514,18 @@ legend{font-weight:600;padding:0;margin-bottom:8px}
 :root[data-motion="reduce"]{scroll-behavior:auto}
 :root[data-motion="reduce"] *{transition:none!important;animation:none!important}
 @media (prefers-reduced-motion:reduce){.switch__track::after{transition:none}}
+
+/* PRINT (site-specific)
+   The base print rules above only strip colours. This removes the fixed and
+   sticky chrome that would otherwise repeat on every page, and prints a
+   single readable column. */
+@media print{
+  .tabbar,.tools-row,.skip,.cta,.side-nav,.socials{display:none!important}
+  .layout{display:block}
+  .sidebar{position:static;height:auto;overflow:visible;padding:0 0 16px;border:0}
+  main{max-width:none;padding:0}
+  .bento{display:block!important;column-count:1!important}
+  .bento .card{margin-bottom:16px!important}
+  footer{position:static;width:auto;padding:16px 0 0;border:0}
+  a[href^="mailto:"]::after{content:""}
+}
